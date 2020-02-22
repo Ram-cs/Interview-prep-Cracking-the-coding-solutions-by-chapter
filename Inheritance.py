@@ -1,20 +1,20 @@
 #
-# class Vehicle:
-#     def __init__(self,brake=0, accelerate=0):
-#         self.brake = brake
-#         self.accelerate = accelerate
-#
-#     def accelerate(self, accelerate):
-#         self.accelerate = accelerate
-#
-#     def brake(self, brake):
-#         self.brake = brake
-#
-#
-# class Car(Vehicle):
-#     def __init__(self, brake, accelerate):
-#         Vehicle.accelerate(accelerate)
-#         Vehicle.brake(brake)
+class Vehicle:
+    def __init__(self,brake=0, accelerate=0):
+        self.brake = brake
+        self.accelerate = accelerate
+
+    def accelerate(self, accelerate):
+        self.accelerate = accelerate
+
+    def brake(self, brake):
+        self.brake = brake
+
+
+class Car(Vehicle):
+    def __init__(self, brake, accelerate):
+        Vehicle.accelerate(accelerate)
+        Vehicle.brake(brake)
 
 
 
@@ -55,10 +55,10 @@ e.getName()
 e.firstName = "Changed"
 e.lastName = "Changes"
 e.getName()
-# print(e.firstName)
-# print(e.lastName)
-# print(e.employee)
-# Person.getName()
+print(e.firstName)
+print(e.lastName)
+print(e.employee)
+Person.getName()
 
-# c = C()
-# print(c.firstName)
+c = C()
+print(c.firstName)

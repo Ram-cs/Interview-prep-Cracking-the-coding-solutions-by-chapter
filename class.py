@@ -36,8 +36,8 @@ a = A()
 # print(a._protected)
 #direct access to private can not be called
 
-# a.setter("PROTECTED", "PRIVATE")
-# a.getter()
+a.setter("PROTECTED", "PRIVATE")
+a.getter()
 #WRONG
 '''There is still something wrong with our Robot class. The Zen of Python says: "There should be one-- and preferably only one --obvious way to do it." 
 Our Robot class provides us with two ways to access or to 
@@ -71,58 +71,58 @@ class A():
 #### Class Attributes #########
 ########################
 
-# class A():
-#     a = "I am a class attributes"
-#
-# x = A()
-# y = A()
-# print(x.a)
-# print(y.a)
-# x.a = "x is changing"
-# print(x.a)
-# print(y.a)
-# print(A.a)
-#
-# A.a = "chaning the class attribute"
-#
-# print(x.a)
-# print(y.a)
-# print(A.a)
-#
-# print(x.__dict__)
-# print(A.__dict__)
-# print(y.__dict__)
-#
-# #x not changed because Python's class attributes and object attributes are stored in separate dictionaries, as we can see here:
-#
-# print(x.__class__.__dict__)
+class A():
+    a = "I am a class attributes"
+
+x = A()
+y = A()
+print(x.a)
+print(y.a)
+x.a = "x is changing"
+print(x.a)
+print(y.a)
+print(A.a)
+
+A.a = "chaning the class attribute"
+
+print(x.a)
+print(y.a)
+print(A.a)
+
+print(x.__dict__)
+print(A.__dict__)
+print(y.__dict__)
+
+#x not changed because Python's class attributes and object attributes are stored in separate dictionaries, as we can see here:
+
+print(x.__class__.__dict__)
 
 
 
 
-# class Robot:
-#     def __init__(self,name=None,age=None):
-#         self.name = name
-#         self.age = age
-#
-#     def setName(self,name):
-#         self.name = name
-#
-#     def setAge(self, age):
-#         self.age = age
-#
-#     def getInfo(self):
-#         print("My name is ", self.name, "age is ", self.age)
+class Robot:
+    def __init__(self,name=None,age=None):
+        self.name = name
+        self.age = age
+
+    def setName(self,name):
+        self.name = name
+
+    def setAge(self, age):
+        self.age = age
+
+    def getInfo(self):
+        print("My name is ", self.name, "age is ", self.age)
 
 
-# r = Robot()
-# r.name = "robert"
-# r.age = 20
-    #OR
-# r.setName("Robert")
-# r.setAge(20)
+r = Robot()
+r.name = "robert"
+r.age = 20
+    OR
+r.setName("Robert")
+r.setAge(20)
 
-# r.getInfo()
+r.getInfo()
 
 #WRONG
 '''There is still something wrong with our Robot class. The Zen of Python says: "There should be one-- and preferably only one --obvious way to do it." 
@@ -132,23 +132,23 @@ will explain later.'''
 
 
 # getter and setter
-# class P:
-#     def __init__(self,x):
-#         self.x = x
-#
-#     @property
-#     def x(self, x):
-#         if x < 0:
-#             self.__x = 0
-#         elif x > 1000:
-#             self.__x = 1000
-#         else:
-#             self.__x = x
-#     @x.getter
-#     def x(self):
-#         return self.__x
-# p = P(1001)
-# print(p.x)
+class P:
+    def __init__(self,x):
+        self.x = x
+
+    @property
+    def x(self, x):
+        if x < 0:
+            self.__x = 0
+        elif x > 1000:
+            self.__x = 1000
+        else:
+            self.__x = x
+    @x.getter
+    def x(self):
+        return self.__x
+p = P(1001)
+print(p.x)
 '''Two things are noteworthy: We just put the code line "self.x = x" in the __init__ method and the property 
 method x is used to check the limits of the values. The second interesting thing is that we wrote "two" methods 
 with the same name and a different number of parameters "def x(self)" and "def x(self,x)". We have learned in a 
